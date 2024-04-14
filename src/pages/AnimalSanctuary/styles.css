@@ -1,0 +1,41 @@
+.animal-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .animal-images img {
+    width: 1rem; /* Adjust the width as needed */
+    height: 1rem; /* Adjust the height as needed */
+    object-fit: cover; /* Maintain aspect ratio and cover the entire space */
+    margin: 10px; /* Add margin for spacing between images */
+  }
+  
+  /* Styles for the homepage */
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Fun and playful font */
+    background-color: #F4EDCC; /* Light gray background */
+    padding: '30px'
+  }
+  /* PhotoGrid.css */
+.photo-grid {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .photo {
+    flex: 1;
+    margin: 0 5px;
+    position: relative;
+    width: 200px; /* Set your desired width for each square photo */
+    height: 200px; /* Set your desired height for each square photo */
+    overflow: hidden;
+  }
+  
+  .photo img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  

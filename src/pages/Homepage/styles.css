@@ -1,0 +1,20 @@
+/* Styles for the homepage */
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Fun and playful font */
+    background-color: #F4EDCC; /* Light gray background */
+    padding: '30px'
+  }
+  
+  #welcome-message {
+    font-size: 24px;
+    text-align: center;
+    margin-top: 50px;
+    margin: 40px;
+    color: #A4CE95; /* Reddish-orange color for the welcome message */
+  }
+  
+  label {
+    font-size: 18px;
+    color: #333; /* Dark gray color for labels */
+  }
+  
