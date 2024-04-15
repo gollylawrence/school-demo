@@ -13,7 +13,7 @@ function Homepage() {
     };
 
     const validate = (name: string) => {
-        if (name === "Holly") return false;
+        if (name.toLocaleLowerCase() === "holly") return false;
 
         else return true;
     };
