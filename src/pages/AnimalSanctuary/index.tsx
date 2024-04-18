@@ -2,7 +2,14 @@ import React, { useState } from "react";
 import dogImage from "./images/dog.jpeg";
 import catImage from "./images/cat.jpeg";
 import rabbitImage from "./images/rabbit.jpeg";
+import georgeAndBertieImage from "./images/george_and_bertie.jpeg"
 import "./styles.css"
+
+type PhotoObject = {
+  src: string,
+  alt: string,
+  animalKey: string
+}
 
 export const AnimalSanctuary = () => {
   // State to store the selected animal
@@ -13,7 +20,7 @@ export const AnimalSanctuary = () => {
     setSelectedAnimal(animal);
   }
 
-  const photos = [{
+  const photos: PhotoObject[] = [{
     src: dogImage,
     alt: 'Dog',
     animalKey: 'dog'
@@ -27,35 +34,47 @@ export const AnimalSanctuary = () => {
     src: rabbitImage,
     alt: 'Rabbit',
     animalKey: 'rabbit'
+  },
+  {
+    src: georgeAndBertieImage,
+    alt: 'George and Bertie',
+    animalKey: 'George and Bertie'
   }]
 
   return (
-    <div className="animal-sanctuary">
-      <h1>Welcome to the Animal Sanctuary!</h1>
-      <div className="photo-grid">
-      {photos.map(({src, alt, animalKey}, index) => (
-        <div key={index} className="photo">
-          <img
-          src={src}
-          alt={alt}
-          className="animal-images"
-          onClick={() => handleAnimalSelect(animalKey)}
-        />
+    <div className="animal-sanctuary" >
+      <div className="container">
+        <div className="top-item">
+          <div className="inner-component">
+              {photos.map(({src, alt, animalKey}, index) => (
+                <div key={index} className="photo">
+                  <img
+                  src={src}
+                  alt={alt}
+                  className="animal-images"
+                  onClick={() => handleAnimalSelect(animalKey)}
+                />
+              </div>
+            ))}
+          </div>
         </div>
-      ))}
+        <div className="bottom-item">
+        {selectedAnimal && (
+          <div className="inner-component">
+            <div className="selected-animal">
+                  <div>
+                    <h2>You have selected a {selectedAnimal}!</h2>
+                    <p>
+                        Thank you for choosing to learn more about our {selectedAnimal}s. 
+                        At the Animal Sanctuary, we provide a safe and loving 
+                        environment for all animals in need of a home.
+                    </p>
+                  </div>
+            </div>
+          </div>
+        )} 
+        </div>
       </div>
-        <div className="selected-animal">
-            {selectedAnimal && (
-                        <div>
-                            <h2>You have selected a {selectedAnimal}!</h2>
-                            <p>
-                                Thank you for choosing to learn more about our {selectedAnimal}s. 
-                                At the Animal Sanctuary, we provide a safe and loving 
-                                environment for all animals in need of a home.
-                            </p>
-                        </div>
-                    )} 
-        </div>
     </div>
   );
 };

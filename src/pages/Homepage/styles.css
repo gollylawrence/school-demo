@@ -1,8 +1,9 @@
 /* Styles for the homepage */
 body {
     font-family: 'Comic Sans MS', cursive, sans-serif; /* Fun and playful font */
-    background-color: #F4EDCC; /* Light gray background */
-    padding: '30px'
+    background-color: #8A9EA0; /* Light gray background */
+    padding: '30px';
+    padding-bottom: 50px;
   }
   
   #welcome-message {
@@ -10,11 +11,11 @@ body {
     text-align: center;
     margin-top: 50px;
     margin: 40px;
-    color: #A4CE95; /* Reddish-orange color for the welcome message */
+    color: black; /* Reddish-orange color for the welcome message */
   }
   
   label {
     font-size: 18px;
-    color: #333; /* Dark gray color for labels */
+    color: black; /* Dark gray color for labels */
   }
   
