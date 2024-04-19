@@ -2,6 +2,7 @@ import dogImage from "./images/dog.jpeg";
 import catImage from "./images/cat.jpeg";
 import rabbitImage from "./images/rabbit.jpeg";
 import georgeAndBertieImage from "./images/george_and_bertie.jpeg"
+import bunnyAndCarrotImage from "./images/bunny_and_carrot.jpg"
   
 export const AnimalGlossary = [{
     src: dogImage,
@@ -26,4 +27,10 @@ export const AnimalGlossary = [{
     alt: 'George and Bertie',
     animalKey: 'George and Bertie',
     location: 'Liverpool'
+  },
+  {
+    src: bunnyAndCarrotImage,
+    alt: 'Bunny and Carrot',
+    animalKey: 'Bunny and Carrot',
+    location: 'Manchester'
   }]

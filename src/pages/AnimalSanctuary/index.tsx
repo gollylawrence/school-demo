@@ -17,7 +17,6 @@ type PhotoObject = {
 
 
 export const AnimalSanctuary = ({ location, selectedAnimal, setSelectedAnimal }: Props) => {
-
   // Function to handle selecting an animal
   const handleAnimalSelect = (animal: string) => {
     const valueToBe = selectedAnimal ? '' : animal
