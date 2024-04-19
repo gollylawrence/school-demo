@@ -7,7 +7,7 @@ type Props = {
     setSelectedAnimal: (selectedAnimal?: string) => void
 };
 
-export const Homepage = ({location, setLocation, setSelectedAnimal }: Props) => {
+export const Search = ({location, setLocation, setSelectedAnimal }: Props) => {
     const [error, setError] = useState<string>();
     const [inputValue, setInputValue] = useState('')
 
@@ -43,13 +43,13 @@ export const Homepage = ({location, setLocation, setSelectedAnimal }: Props) => 
             <div id="welcome-message">
                 Welcome to our website!
             </div>
-            <div style={{ display: "flex",
+            <div >
+                <form onSubmit={handleNameSubmit} style={{ display: "flex",
                 flexWrap: "wrap",
                 justifyContent: "center",
                 alignItems: "center",
                 gap: "10px"
-            }}>
-                <form onSubmit={handleNameSubmit}>
+                }}>
                     <label htmlFor="name-input">Enter your location:</label>
                     <input
                         type="text"
@@ -70,4 +70,4 @@ export const Homepage = ({location, setLocation, setSelectedAnimal }: Props) => 
     );
 }
 
-export default Homepage;
+export default Search;

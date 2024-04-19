@@ -1,5 +1,5 @@
-import { AnimalSanctuary } from '../../src/pages/AnimalSanctuary';
-import AnimalGlossary from '../../src/pages/AnimalSanctuary/AnimalGlossary';
+import { AnimalSanctuary } from '../../src/pages/SelectAnAnimal/AnimalSanctuary';
+import AnimalGlossary from '../../src/pages/SelectAnAnimal/AnimalSanctuary/AnimalGlossary';
 import { mount } from 'cypress/react18';
 
 describe('AnimalSanctuary', () => {
