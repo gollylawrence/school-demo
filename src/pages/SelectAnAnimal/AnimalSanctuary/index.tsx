@@ -27,9 +27,7 @@ export const AnimalSanctuary = ({ location, selectedAnimal, setSelectedAnimal }:
   const activeLocationAnimals = location ? AnimalGlossary.filter(photo => photo.location === location) : AnimalGlossary
   const activeAnimals: PhotoObject[] = selectedAnimalCard ? [selectedAnimalCard] : activeLocationAnimals
 
-  return (
-    <div className="animal-sanctuary" >
-      <div className="container">
+  return (<>
         {activeAnimals &&  <div className="top-item">
           <div className="inner-component">
             <div className="animal-grid">
@@ -61,8 +59,6 @@ export const AnimalSanctuary = ({ location, selectedAnimal, setSelectedAnimal }:
             </div>
           </div>
         )} 
-        </div>
-      </div>
-    </div>
+        </div></>
   );
 };

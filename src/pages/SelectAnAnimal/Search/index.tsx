@@ -39,16 +39,17 @@ export const Search = ({location, setLocation, setSelectedAnimal }: Props) => {
     };
 
     return (
-        <div>
+        <div className="inner-component">
             <div id="welcome-message">
-                Welcome to our website!
+                Click on an animal to find out more!
             </div>
             <div >
                 <form onSubmit={handleNameSubmit} style={{ display: "flex",
-                flexWrap: "wrap",
-                justifyContent: "center",
-                alignItems: "center",
-                gap: "10px"
+                    flexDirection: "column",
+                    flexWrap: "wrap",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "10px"
                 }}>
                     <label htmlFor="name-input">Enter your location:</label>
                     <input
@@ -57,7 +58,8 @@ export const Search = ({location, setLocation, setSelectedAnimal }: Props) => {
                         value={inputValue}
                         onChange={handleNameChange}
                         style={{
-                            borderColor: error ? "red" : "black"
+                            borderColor: error ? "red" : "black",
+                            width: '80%'
                         }}
                     />
                     <button>Update</button>

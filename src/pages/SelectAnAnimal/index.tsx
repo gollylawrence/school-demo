@@ -7,7 +7,12 @@ export const SelectAnAnimal = () => {
     const [selectedAnimal, setSelectedAnimal] = useState<string | undefined>(undefined);
 
     return (
-        <div>
+        <div style={{
+            flexDirection: 'column',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center' 
+        }}>
             <Search location={location} setLocation={setLocation} setSelectedAnimal={setSelectedAnimal} />
             <AnimalSanctuary location={location} selectedAnimal={selectedAnimal} setSelectedAnimal={setSelectedAnimal}/>
         </div>

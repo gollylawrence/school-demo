@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import { SelectAnAnimal } from '../pages/SelectAnAnimal';
-import { Donate } from '../pages/SelectAnAnimal/Donate';
+import Donate from '../pages/Donate';
 import './NavBar.css'
 
 enum Tabs {
     SelectAnAnimal = 'Select An Animal',
     Donate = 'Donate',
-    Services = 'Services',
-    Contact = 'Contact'
+    // Services = 'Services',
+    // Contact = 'Contact'
 }
 
 const Pages: { [tabName: string]: React.ReactElement } = {
     [Tabs.SelectAnAnimal]: <SelectAnAnimal />,
     [Tabs.Donate]: <Donate />,
-    [Tabs.Services]: <h1>Our Services</h1>,
-    [Tabs.Contact]: <h1>Contact Us</h1>
+    // [Tabs.Services]: <h1>Our Services</h1>,
+    // [Tabs.Contact]: <h1>Contact Us</h1>
 }
 
 const NavBar = () => {
