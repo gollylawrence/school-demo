@@ -1,15 +1,21 @@
 import React, { useState } from "react";
 import "./styles.css"
 
-function Homepage() {
+type Props = {
+    location: string, 
+    setLocation: (location: string) => void
+    setSelectedAnimal: (selectedAnimal?: string) => void
+};
+
+export const Homepage = ({location, setLocation, setSelectedAnimal }: Props) => {
     // State to store the user's name
-    const [userName, setUserName] = useState("");
     const [title, setTitle] = useState("Friend");
     const [error, setError] = useState<string>();
 
     // Function to handle updating the user's name
     const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setUserName(event.target.value);
+        setSelectedAnimal(undefined)
+        setLocation(event.target.value);
     };
 
     const validate = (name: string) => {
@@ -19,10 +25,10 @@ function Homepage() {
     };
 
     const handleNameSubmit = () => {
-        const isValid = validate(userName);
+        const isValid = validate(location);
 
         if (isValid) {
-            setTitle(userName);
+            setTitle(location);
             setError('');
         }
 
@@ -43,11 +49,11 @@ function Homepage() {
                 alignItems: "center",
                 gap: "10px"
             }}>
-                <label htmlFor="name-input">Enter your name:</label>
+                <label htmlFor="name-input">Enter your location:</label>
                 <input
                     type="text"
                     id="name-input"
-                    value={userName}
+                    value={location}
                     onChange={handleNameChange}
                     style={{
                         borderColor: error ? "red" : "black"

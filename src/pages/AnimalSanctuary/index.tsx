@@ -1,52 +1,30 @@
 import React, { useState } from "react";
-import dogImage from "./images/dog.jpeg";
-import catImage from "./images/cat.jpeg";
-import rabbitImage from "./images/rabbit.jpeg";
-import georgeAndBertieImage from "./images/george_and_bertie.jpeg"
 import "./styles.css"
+import AnimalGlossary from "./AnimalGlossary";
 
-type PhotoObject = {
-  src: string,
-  alt: string,
-  animalKey: string
+type Props = {
+  location: string,
+  selectedAnimal?: string,
+  setSelectedAnimal: (selectedAnimal?: string) => void
 }
 
-export const AnimalSanctuary = () => {
-  // State to store the selected animal
-  const [selectedAnimal, setSelectedAnimal] = useState<string>("");
+export const AnimalSanctuary = ({ location, selectedAnimal, setSelectedAnimal }: Props) => {
 
   // Function to handle selecting an animal
   const handleAnimalSelect = (animal: string) => {
     setSelectedAnimal(animal);
   }
 
-  const photos: PhotoObject[] = [{
-    src: dogImage,
-    alt: 'Dog',
-    animalKey: 'dog'
-  },
-  {
-    src: catImage,
-    alt: 'Cat',
-    animalKey: 'cat'
-  },
-  {
-    src: rabbitImage,
-    alt: 'Rabbit',
-    animalKey: 'rabbit'
-  },
-  {
-    src: georgeAndBertieImage,
-    alt: 'George and Bertie',
-    animalKey: 'George and Bertie'
-  }]
+
+  const activeAnimals = (location || selectedAnimal) ? AnimalGlossary.filter(photo => photo.location === location) : AnimalGlossary
 
   return (
     <div className="animal-sanctuary" >
       <div className="container">
         <div className="top-item">
           <div className="inner-component">
-              {photos.map(({src, alt, animalKey}, index) => (
+            <div className="animal-grid">
+              {activeAnimals.map(({src, alt, animalKey}, index) => (
                 <div key={index} className="photo">
                   <img
                   src={src}
@@ -54,8 +32,9 @@ export const AnimalSanctuary = () => {
                   className="animal-images"
                   onClick={() => handleAnimalSelect(animalKey)}
                 />
-              </div>
-            ))}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
         <div className="bottom-item">
