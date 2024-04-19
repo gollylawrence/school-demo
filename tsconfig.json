@@ -17,5 +17,5 @@
     "jsx": "react-jsx",
     "types": ["cypress", "node"]
   },
-  "include": ["src", "**/*.ts"]
+  "include": ["src", "**/*.ts", "cypress/component/indexAnimalSanctuary.cy.tsx"]
 }
