@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import "./styles.css"
-import AnimalGlossary from "./AnimalGlossary";
+import { AnimalGlossary } from "./AnimalGlossary";
 
 type Props = {
   location: string,
@@ -8,20 +8,30 @@ type Props = {
   setSelectedAnimal: (selectedAnimal?: string) => void
 }
 
+type PhotoObject = {
+  src: string,
+  alt: string,
+  animalKey: string,
+  location: string
+}
+
+
 export const AnimalSanctuary = ({ location, selectedAnimal, setSelectedAnimal }: Props) => {
 
   // Function to handle selecting an animal
   const handleAnimalSelect = (animal: string) => {
-    setSelectedAnimal(animal);
+    const valueToBe = selectedAnimal ? '' : animal
+    setSelectedAnimal(valueToBe);
   }
 
-
-  const activeAnimals = (location || selectedAnimal) ? AnimalGlossary.filter(photo => photo.location === location) : AnimalGlossary
+  const selectedAnimalCard = selectedAnimal ? AnimalGlossary.find(animal => animal.animalKey === selectedAnimal) : undefined
+  const activeLocationAnimals = location ? AnimalGlossary.filter(photo => photo.location === location) : AnimalGlossary
+  const activeAnimals: PhotoObject[] = selectedAnimalCard ? [selectedAnimalCard] : activeLocationAnimals
 
   return (
     <div className="animal-sanctuary" >
       <div className="container">
-        <div className="top-item">
+        {activeAnimals &&  <div className="top-item">
           <div className="inner-component">
             <div className="animal-grid">
               {activeAnimals.map(({src, alt, animalKey}, index) => (
@@ -36,7 +46,7 @@ export const AnimalSanctuary = ({ location, selectedAnimal, setSelectedAnimal }:
               ))}
             </div>
           </div>
-        </div>
+        </div>}
         <div className="bottom-item">
         {selectedAnimal && (
           <div className="inner-component">

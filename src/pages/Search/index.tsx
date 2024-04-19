@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, FormEvent, useState } from "react";
 import "./styles.css"
 
 type Props = {
@@ -8,14 +8,14 @@ type Props = {
 };
 
 export const Homepage = ({location, setLocation, setSelectedAnimal }: Props) => {
-    // State to store the user's name
-    const [title, setTitle] = useState("Friend");
     const [error, setError] = useState<string>();
+    const [inputValue, setInputValue] = useState('')
 
     // Function to handle updating the user's name
-    const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleNameChange = (event: ChangeEvent<HTMLInputElement>) => {
         setSelectedAnimal(undefined)
-        setLocation(event.target.value);
+        setLocation('')
+        setInputValue(event.target.value)
     };
 
     const validate = (name: string) => {
@@ -24,11 +24,12 @@ export const Homepage = ({location, setLocation, setSelectedAnimal }: Props) => 
         else return true;
     };
 
-    const handleNameSubmit = () => {
+    const handleNameSubmit = (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
         const isValid = validate(location);
+        setLocation(inputValue);
 
         if (isValid) {
-            setTitle(location);
             setError('');
         }
 
@@ -39,9 +40,8 @@ export const Homepage = ({location, setLocation, setSelectedAnimal }: Props) => 
 
     return (
         <div>
-            {/* Welcome message with dynamic user's name */}
             <div id="welcome-message">
-                Welcome to our website, {title}!
+                Welcome to our website!
             </div>
             <div style={{ display: "flex",
                 flexWrap: "wrap",
@@ -49,17 +49,19 @@ export const Homepage = ({location, setLocation, setSelectedAnimal }: Props) => 
                 alignItems: "center",
                 gap: "10px"
             }}>
-                <label htmlFor="name-input">Enter your location:</label>
-                <input
-                    type="text"
-                    id="name-input"
-                    value={location}
-                    onChange={handleNameChange}
-                    style={{
-                        borderColor: error ? "red" : "black"
-                    }}
-                />
-                <button onClick={handleNameSubmit}>Update</button>
+                <form onSubmit={handleNameSubmit}>
+                    <label htmlFor="name-input">Enter your location:</label>
+                    <input
+                        type="text"
+                        id="name-input"
+                        value={inputValue}
+                        onChange={handleNameChange}
+                        style={{
+                            borderColor: error ? "red" : "black"
+                        }}
+                    />
+                    <button>Update</button>
+                </form>
             </div>
             {error && <div>
                 <p style={{color: "red", display: 'flex', alignContent: 'center', justifyContent: 'center'}}>You cant put that!!</p>

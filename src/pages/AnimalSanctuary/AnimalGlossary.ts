@@ -2,16 +2,8 @@ import dogImage from "./images/dog.jpeg";
 import catImage from "./images/cat.jpeg";
 import rabbitImage from "./images/rabbit.jpeg";
 import georgeAndBertieImage from "./images/george_and_bertie.jpeg"
-
-type PhotoObject = {
-    src: string,
-    alt: string,
-    animalKey: string,
-    location: string
-  }
-
   
-export default [{
+export const AnimalGlossary = [{
     src: dogImage,
     alt: 'Dog',
     animalKey: 'dog',
