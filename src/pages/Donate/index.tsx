@@ -44,7 +44,7 @@ const Donate = () => {
             </form>
         ) : (
             <div className='thanks-container'>
-            <h2>Thank you for your donation, {name.toUpperCase()}!</h2>
+            <h2>Thnk you for yur donation, {name.toUpperCase()}!</h2>
             <p>Email: {email}</p>
             <p>Phone Number: {phoneNumber}</p>
             <p>Amount: ${amount}</p>

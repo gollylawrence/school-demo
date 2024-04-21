@@ -8,7 +8,6 @@ body {
     flex: 1;
     aspect-ratio: 1;
     display: block;
-    padding: 1rem;
   }
   
   .photo img {
@@ -34,13 +33,13 @@ body {
     border-radius: 8px; /* Adjust the border radius as needed */
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Adjust the box shadow as needed */
     display: flex;
-
   }
   
   .animal-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     column-gap: 1rem;
+    row-gap: 1rem;
   }
 
   button {
@@ -53,3 +52,34 @@ body {
       border-radius: 8px; /* Adjust the border radius as needed */
       display: flex;
   }
+
+  .photo {
+    position: relative;
+    overflow: hidden; /* Add this to ensure the overlay stays within the container */
+  }
+  
+  .animal-image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(138, 158, 160, 0.8); /* Adjust the opacity as needed */
+    color: white;
+    /* text-align: center; */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    width: 100%;
+  }
+  
+  .photo:hover .overlay {
+    opacity: 1;
+  }
+  

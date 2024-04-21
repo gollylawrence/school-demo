@@ -1,0 +1,8 @@
+.overlay-content {
+    align-items: center;
+    justify-content: center;
+    text-size-adjust: auto;
+    text-align: center;
+    inline-size: min-content;
+    width: 100%;
+}
